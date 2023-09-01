@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\vicke\Documents\C# Umu\Laboration1\Laboration1
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/vicke/Documents/C\# Umu/Laboration1/Laboration1/Views/GameLibrary/AddNewGame.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZUxpYnJhcnlcQWRkTmV3R2FtZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vicke/Documents/C\# Umu/Laboration1/Laboration1/Views/GameLibrary/WelcomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZUxpYnJhcnlcV2VsY29tZVBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vicke/Documents/C\# Umu/Laboration1/Laboration1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
