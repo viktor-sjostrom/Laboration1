@@ -24,5 +24,9 @@ namespace Laboration1.Models
             GamesList.Add(game);
         }
 
+        public List<Game> GetGames()
+        {
+            return GamesList;
+        }
     }
 }

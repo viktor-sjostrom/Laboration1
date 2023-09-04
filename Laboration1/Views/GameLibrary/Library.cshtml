@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@* @using MultipleModelInOneView; *@
+@model ViewModel
+
+@{
+    ViewData["Title"] = "Library";
+}
+
+<h2>Your Game Library</h2>
+<h4>@ViewBag.Message</h4>
+
+<hr />
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Platform</th>
+        <th>Playtime</th>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Date</th>
+    </tr>
+    @foreach (Game game in Model.Games)
+    {
+        <tr>
+            <td>@game.GameName</td>
+            <td>@game.Platform</td>
+            <td>@game.PlayTime</td>
+            <td>@game.Rating</td>
+            <td>@game.Comment</td>
+            <td>@game.RegistrationDate</td>
+        </tr>
+    }
+</table>
+

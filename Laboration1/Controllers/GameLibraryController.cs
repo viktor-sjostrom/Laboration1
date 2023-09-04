@@ -1,5 +1,6 @@
 ﻿using Laboration1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
 
 namespace Laboration1.Controllers
@@ -7,7 +8,9 @@ namespace Laboration1.Controllers
     public class GameLibraryController : Controller
     {
 
-        GameLibrary gameLibrary = new GameLibrary();
+        GameLibrary gameLibraryss = new GameLibrary();
+
+        //List<Game> gameLibrary = new List<Game>();
 
         public IActionResult Index()
         {
@@ -19,23 +22,49 @@ namespace Laboration1.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult AddNewGame(IFormCollection col)
+        //[HttpGet]
+        public IActionResult AddNewGame()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Confirmation(IFormCollection col)
         {
             Game game = new Game();
             game.GameName = col["GameName"];
             game.Platform = col["Platform"];
-            game.PlayTime = Convert.ToInt32(col["PlayTime"]);
-            game.Rating = Convert.ToInt32(col["Rating"]);
-            game.Comment = col["Comment"];
-            game.RegistrationDate = Convert.ToDateTime(col["RegistrationDate"]);
+            if(col["PlayTime"] != string.Empty)
+                game.PlayTime = Convert.ToInt32(col["PlayTime"]);
+            
+            if(col["Rating"] != string.Empty)
+                game.Rating = Convert.ToInt32(col["Rating"]);
 
-            gameLibrary.AddGame(game);
+            game.Comment = col["Comment"];
+            if(col["RegistrationDate"] != string.Empty)
+                game.RegistrationDate = Convert.ToDateTime(col["RegistrationDate"]);
+
+            gameLibraryss.AddGame(game);
 
             string s = JsonConvert.SerializeObject(game);
-            //HttpContext.Session.SetString("session", s);
+            //HttpContext.Session.SetString("gamesession", s);
 
             return View(game);
+
+        }
+
+        public IActionResult DeleteGame() 
+        {
+            return View();
+        }
+
+        public IActionResult Library()
+        {
+            ViewBag.Message = "Welcome to your library with games!";
+            GameViewModel myModel = new GameViewModel();
+            myModel.Games = (IEnumerable<GameLibrary>)gameLibraryss.GetGames();
+
+            return View(myModel);  
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Laboration1.Models
     {
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide the Games Title")]
+        [Display(Name = "Game Title")]
         public string GameName { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please Provide the Platform")]
         public string Platform { get; set; }
@@ -20,20 +21,6 @@ namespace Laboration1.Models
         [DataType(DataType.Date)]
         public DateTime? RegistrationDate { get; set; }
 
-
-        public Game(String name, String platform)
-        {
-            this.GameName = name;
-            this.Platform = platform;
-            this.RegistrationDate = DateTime.Now;
-        }
-
-        public Game(String name, String platform, DateTime date)
-        {
-            this.GameName = name;
-            this.Platform = platform;
-            this.RegistrationDate = date;
-        }
 
         public Game() { }
     }
