@@ -56,6 +56,26 @@ namespace Laboration1.Controllers
             return View();
         }
 
+        public IActionResult Edit(int id) 
+        { 
+            var editGame = gameLibrary.Where(g => g.gameId== id).FirstOrDefault();
+
+            if(editGame != null)
+                return View(editGame);
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Game eg) 
+        {
+            var game = gameLibrary.Where(g => g.gameId == eg.gameId).FirstOrDefault();
+            gameLibrary.Remove(game);
+            gameLibrary.Add(eg);
+
+            return RedirectToAction("Library");
+        }
+
         [HttpGet]
         public IActionResult Library()
         {

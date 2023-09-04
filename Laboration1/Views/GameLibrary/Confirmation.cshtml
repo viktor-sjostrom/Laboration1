@@ -7,7 +7,7 @@
 <h1>Confirmation</h1>
 
 <div>
-    <h4>Kontrollera så alla detaljer stämmer</h4>
+    <h4>Följande spel läggs nu till i ditt spelbibliotke</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -52,15 +52,7 @@
 <table>
     <tr>
         <td>
-            <button>Confirm</button>
-        </td>
-        <td>
-            <button>Edit</button>
+            <a asp-action="Library"><button>Confirm</button></a>
         </td>
     </tr>
 </table>
-
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
-</div>

@@ -21,23 +21,15 @@ namespace Laboration1.Models
         [DataType(DataType.Date)]
         public DateTime? RegistrationDate { get; set; }
 
+        public int gameId { get;  }
 
-        public Game() { }
+        private int count = 1;
 
-        public Game (string gameName, string platform, int? playTime, int? rating, string? comment, DateTime? registrationDate)
+
+        public Game() 
         {
-            this.GameName = gameName;
-            this.Platform = platform;
-            this.PlayTime = playTime;
-            this.Rating = rating;
-            this.Comment = comment;
-            this.RegistrationDate = registrationDate;
+            gameId = count++;
         }
 
-        public Game(string gameName, string platform)
-        {
-            this.GameName = gameName;
-            this.Platform = platform; 
-        }
     }
 }
