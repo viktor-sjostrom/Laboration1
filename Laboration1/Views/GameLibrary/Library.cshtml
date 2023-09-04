@@ -23,7 +23,7 @@
         <th>Comment</th>
         <th>Date</th>
     </tr>
-    @foreach (Game game in Model.Games)
+    @foreach (var game in Model.Games)
     {
         <tr>
             <td>@game.GameName</td>

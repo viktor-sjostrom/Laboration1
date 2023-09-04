@@ -8,9 +8,7 @@ namespace Laboration1.Controllers
     public class GameLibraryController : Controller
     {
 
-        GameLibrary gameLibraryss = new GameLibrary();
-
-        //List<Game> gameLibrary = new List<Game>();
+        private static List<Game> gameLibrary = new List<Game>();
 
         public IActionResult Index()
         {
@@ -22,7 +20,7 @@ namespace Laboration1.Controllers
             return View();
         }
 
-        //[HttpGet]
+        [HttpGet]
         public IActionResult AddNewGame()
         {
             return View();
@@ -44,8 +42,7 @@ namespace Laboration1.Controllers
             if(col["RegistrationDate"] != string.Empty)
                 game.RegistrationDate = Convert.ToDateTime(col["RegistrationDate"]);
 
-            gameLibraryss.AddGame(game);
-            gameLibraryss.TestAdd();
+            gameLibrary.Add(game);
 
             string s = JsonConvert.SerializeObject(game);
             //HttpContext.Session.SetString("gamesession", s);
@@ -59,11 +56,12 @@ namespace Laboration1.Controllers
             return View();
         }
 
-        public ActionResult Library()
+        [HttpGet]
+        public IActionResult Library()
         {
             ViewBag.Message = "Welcome to your library with games!";
             GameViewModel myModel = new GameViewModel();
-            myModel.Games = gameLibraryss.GetGames();
+            myModel.Games = gameLibrary;
 
             return View(myModel);  
         }
