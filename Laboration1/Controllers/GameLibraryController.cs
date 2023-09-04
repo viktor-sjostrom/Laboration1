@@ -45,6 +45,7 @@ namespace Laboration1.Controllers
                 game.RegistrationDate = Convert.ToDateTime(col["RegistrationDate"]);
 
             gameLibraryss.AddGame(game);
+            gameLibraryss.TestAdd();
 
             string s = JsonConvert.SerializeObject(game);
             //HttpContext.Session.SetString("gamesession", s);
@@ -58,11 +59,11 @@ namespace Laboration1.Controllers
             return View();
         }
 
-        public IActionResult Library()
+        public ActionResult Library()
         {
             ViewBag.Message = "Welcome to your library with games!";
             GameViewModel myModel = new GameViewModel();
-            myModel.Games = (IEnumerable<GameLibrary>)gameLibraryss.GetGames();
+            myModel.Games = gameLibraryss.GetGames();
 
             return View(myModel);  
         }

@@ -2,6 +2,6 @@
 {
     public class GameViewModel
     {
-        public IEnumerable<GameLibrary> Games { get; set;}
+        public IEnumerable<Game> Games { get; set;}
     }
 }

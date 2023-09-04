@@ -23,5 +23,21 @@ namespace Laboration1.Models
 
 
         public Game() { }
+
+        public Game (string gameName, string platform, int? playTime, int? rating, string? comment, DateTime? registrationDate)
+        {
+            this.GameName = gameName;
+            this.Platform = platform;
+            this.PlayTime = playTime;
+            this.Rating = rating;
+            this.Comment = comment;
+            this.RegistrationDate = registrationDate;
+        }
+
+        public Game(string gameName, string platform)
+        {
+            this.GameName = gameName;
+            this.Platform = platform; 
+        }
     }
 }

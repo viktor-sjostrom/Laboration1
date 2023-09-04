@@ -28,5 +28,10 @@ namespace Laboration1.Models
         {
             return GamesList;
         }
+
+        public void TestAdd() 
+        {
+            GamesList.Add(new Game("Test", "Test"));
+        }
     }
 }
