@@ -1,4 +1,5 @@
 ﻿using Laboration1.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
@@ -8,8 +9,27 @@ namespace Laboration1.Controllers
     public class GameLibraryController : Controller
     {
 
+        /*
         private static List<Game> gameLibrary = new List<Game>();
         private static int gameCounter = 1;
+        */
+
+        private const string GameLibrarySessionKey = "GameLibrary";
+        private const string GameCounterSessionKey = "GameCounter";
+
+        public GameLibraryController()
+        {
+            //Initalize session variables if they don't exist
+            if (HttpContext.Session.Get(GameLibrarySessionKey) == null) 
+            { 
+                HttpContext.Session.Set(GameLibrarySessionKey, new List<Game>());
+            }
+
+            if (HttpContext.Session.GetInt32(GameCounterSessionKey) == null)
+            {
+                HttpContext.Session.SetInt32(GameCounterSessionKey, 1);
+            }
+        }
 
         //Sessionsvariabel
 
