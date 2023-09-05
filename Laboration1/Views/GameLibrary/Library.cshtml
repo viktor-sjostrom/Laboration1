@@ -34,7 +34,7 @@
             <td>@game.PlayTime</td>
             <td>@game.Rating</td>
             <td>@game.Comment</td>
-            <td>@game.RegistrationDate</td>
+            <td>@(game.RegistrationDate.HasValue ? game.RegistrationDate.Value.ToString("yyyy-MM-dd") : "")</td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {id = game.gameId}) |
                 @Html.ActionLink("Delete", "Delete", new {id = game.gameId})

@@ -105,21 +105,6 @@ namespace Laboration1.Controllers
             // If the model is not valid, redisplay the edit view with validation errors.
             return View(editedGame);
 
-            /*
-            var game = gameLibrary.FirstOrDefault(g => g.gameId == eg.gameId);
-
-            gameLibrary.Remove(game);
-            gameLibrary.Add(eg);
-
-            string s = HttpContext.Session.GetString("gamesession");
-            game = JsonConvert.DeserializeObject<Game>(s);
-            s = JsonConvert.SerializeObject(game);
-            HttpContext.Session.SetString("gamesession", s);
-
-            
-            return RedirectToAction("Library");
-            */
-            //return View(eg);
         }
 
         [HttpGet]

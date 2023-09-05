@@ -19,6 +19,7 @@ namespace Laboration1.Models
         public string? Comment { get; set; }
 
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? RegistrationDate { get; set; }
 
 

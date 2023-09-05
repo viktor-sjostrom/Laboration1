@@ -4,55 +4,68 @@
     ViewData["Title"] = "AddNewGame";
 }
 
-<h1>AddNewGame</h1>
 
-<h4>GameLibrary</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Confirmation" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="GameName" class="control-label"></label>
-                <input asp-for="GameName" class="form-control" />
-                <span asp-validation-for="GameName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Platform" class="control-label"></label>
-                <input asp-for="Platform" class="form-control" />
-                <span asp-validation-for="Platform" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PlayTime" class="control-label"></label>
-                <input asp-for="PlayTime" class="form-control" />
-                <span asp-validation-for="PlayTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Comment" class="control-label"></label>
-                <textarea asp-for="Comment" class="form-control"></textarea>
-                <span asp-validation-for="Comment" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegistrationDate" class="control-label"></label>
-                <input asp-for="RegistrationDate" class="form-control" />
-                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="container mt-5">
+    <h1>Add New Game</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Confirmation" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="GameName" class="control-label">Game Name</label>
+                    <input asp-for="GameName" class="form-control" />
+                    <span asp-validation-for="GameName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Platform" class="control-label">Platform</label>
+                    <input asp-for="Platform" class="form-control" />
+                    <span asp-validation-for="Platform" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PlayTime" class="control-label">Play Time (minutes)</label>
+                    <input asp-for="PlayTime" class="form-control" />
+                    <span asp-validation-for="PlayTime" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Rating</label>
+                    <div>
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <label class="radio-inline">
+                                <input type="radio" asp-for="Rating" value="@i"/> @i
+                            </label>
+                        }
+                    </div>
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Comment" class="control-label">Comment</label>
+                    <textarea asp-for="Comment" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="Comment" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="RegistrationDate" class="control-label">Registration Date</label>
+                    <input asp-for="RegistrationDate" class="form-control" />
+                    <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" style="margin-top:10px">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
