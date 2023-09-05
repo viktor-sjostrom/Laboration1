@@ -3,6 +3,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Lägger till en rad för att sessions ska fungera
+builder.Services.AddDistributedMemoryCache();
+
+//Lägg till ett block för att sessions ska fungera
+builder.Services.AddSession(opttions =>
+{
+    opttions.IdleTimeout = TimeSpan.FromSeconds(100);
+    opttions.Cookie.HttpOnly = true;
+    opttions.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,6 +28,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

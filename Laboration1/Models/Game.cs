@@ -21,14 +21,16 @@ namespace Laboration1.Models
         [DataType(DataType.Date)]
         public DateTime? RegistrationDate { get; set; }
 
-        public int gameId { get;  }
+
+        
+        public int gameId { get; set; } 
 
         private int count = 1;
 
 
         public Game() 
         {
-            gameId = count++;
+           //gameId = count++;
         }
 
     }

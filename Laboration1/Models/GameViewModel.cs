@@ -2,7 +2,7 @@
 {
     public class GameViewModel
     {
-        public IEnumerable<Game> Games { get; set;}
+        public IEnumerable<Game>? Games { get; set;}
 
     }
 }

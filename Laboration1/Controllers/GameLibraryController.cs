@@ -9,12 +9,9 @@ namespace Laboration1.Controllers
     {
 
         private static List<Game> gameLibrary = new List<Game>();
+        //private static int gameCounter = 1;
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
+        [HttpGet]
         public IActionResult WelcomePage()
         {
             return View();
@@ -32,6 +29,8 @@ namespace Laboration1.Controllers
             Game game = new Game();
             game.GameName = col["GameName"];
             game.Platform = col["Platform"];
+            //game.gameId = gameCounter++;
+
             if(col["PlayTime"] != string.Empty)
                 game.PlayTime = Convert.ToInt32(col["PlayTime"]);
             
@@ -45,7 +44,7 @@ namespace Laboration1.Controllers
             gameLibrary.Add(game);
 
             string s = JsonConvert.SerializeObject(game);
-            //HttpContext.Session.SetString("gamesession", s);
+            HttpContext.Session.SetString("gamesession", s);
 
             return View(game);
 
@@ -56,22 +55,43 @@ namespace Laboration1.Controllers
             return View();
         }
 
+
         public IActionResult Edit(int id) 
-        { 
+        {
+            //"Väljer" fel game - väljer sista
+            string s = HttpContext.Session.GetString("gamesession");
             var editGame = gameLibrary.Where(g => g.gameId== id).FirstOrDefault();
 
-            if(editGame != null)
-                return View(editGame);
+            //var editGame = gameLibrary.FirstOrDefault(g => g.gameId== id);
 
-            return View();
+
+            //Denna väljer alltid första objektet
+            //Game game = gameLibrary.Find(g => g.gameId == id);
+
+
+            if(editGame != null) {
+                editGame = JsonConvert.DeserializeObject<Game>(s);
+                s = JsonConvert.SerializeObject(editGame);
+                HttpContext.Session.SetString("gamesession", s);
+                return View(editGame);
+            }
+
+            return RedirectToAction("Library");
         }
 
         [HttpPost]
         public IActionResult Edit(Game eg) 
         {
-            var game = gameLibrary.Where(g => g.gameId == eg.gameId).FirstOrDefault();
+            //Ändrar alltid de första objektet
+            var game = gameLibrary.FirstOrDefault(g => g.gameId == eg.gameId);
+
             gameLibrary.Remove(game);
             gameLibrary.Add(eg);
+
+            string s = HttpContext.Session.GetString("gamesession");
+            game = JsonConvert.DeserializeObject<Game>(s);
+            s = JsonConvert.SerializeObject(game);
+            HttpContext.Session.SetString("gamesession", s);
 
             return RedirectToAction("Library");
         }
