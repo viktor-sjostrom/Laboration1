@@ -25,13 +25,6 @@ namespace Laboration1.Models
         
         public int gameId { get; set; } 
 
-        private int count = 1;
-
-
-        public Game() 
-        {
-           //gameId = count++;
-        }
 
     }
 }
