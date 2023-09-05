@@ -81,26 +81,6 @@ namespace Laboration1.Controllers
         {
             if (ModelState.IsValid)
             {
-                /*
-                // Find the game in gameLibrary by gameId
-                var existingGame = gameLibrary.FirstOrDefault(g => g.gameId == editedGame.gameId);
-
-                if (existingGame != null)
-                {
-                    // Update the existing game's properties
-                    existingGame.GameName = editedGame.GameName;
-                    existingGame.Platform = editedGame.Platform;
-                    existingGame.PlayTime = editedGame.PlayTime;
-                    existingGame.Rating = editedGame.Rating;
-                    existingGame.Comment = editedGame.Comment;
-                    existingGame.RegistrationDate = editedGame.RegistrationDate;
-
-                    // Serialize the updated game list to store in the session
-                    var serializedGameList = JsonConvert.SerializeObject(gameLibrary);
-                    HttpContext.Session.SetString("gamesession", serializedGameList);
-
-                    return RedirectToAction("Library");
-                }*/
 
                 if (gameLibrary.Any(g => g.gameId == editedGame.gameId))
                 {
