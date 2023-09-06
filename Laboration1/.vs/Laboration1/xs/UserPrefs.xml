@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{9543A357-3777-4F02-9270-FC5E31310BB2}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/GameLibraryController.cs">
+    <Files>
+      <File FileName="Views/GameLibrary/Delete.cshtml" />
+      <File FileName="Controllers/GameLibraryController.cs" Line="13" Column="1" />
+      <File FileName="Views/GameLibrary/AddNewGame.cshtml" />
+      <File FileName="Program.cs" />
+      <File FileName="Views/Shared/_Layout.cshtml" />
+      <File FileName="Models/Game.cs" />
+      <File FileName="Models/GameViewModel.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Laboration1">
+            <Node name="Laboration1">
+              <Node name="Controllers" expanded="True">
+                <Node name="GameLibraryController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="GameLibrary" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Laboration1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>

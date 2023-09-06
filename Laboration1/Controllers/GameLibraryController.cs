@@ -9,18 +9,20 @@ namespace Laboration1.Controllers
     public class GameLibraryController : Controller
     {
 
-        
-        //private static List<Game> gameLibrary = new List<Game>();
-        //private static int gameCounter = 1;
-        
 
+
+        //Sessionsvariabel
         private const string GameLibrarySessionKey = "GameLibrary";
         private const string GameCounterSessionKey = "GameCounter";
 
 
 
-        //Sessionsvariabel
+        
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult WelcomePage()
         {
